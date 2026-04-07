@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pay Invoice — ARK | American Research Khemicals</title>
+<meta name="description" content="American Research Khemicals (ARK) — Industrial-grade cleaning solutions engineered for performance. Trusted by 500+ facilities across all 50 states.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/favicon.png">
+<link rel="apple-touch-icon" href="/images/favicon.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0b1a;--bg-elevated:#141226;--bg-surface:#1a1730;--bg-hover:#211e38;
+  --border:rgba(255,255,255,.06);--border-hover:rgba(255,255,255,.12);
+  --text:#e8e6f0;--text-secondary:#8a879e;--text-muted:#5c5876;
+  --pink:#e6007e;--pink-soft:rgba(230,0,126,.12);
+  --blue:#2979ff;--blue-soft:rgba(41,121,255,.12);
+  --accent-gradient:linear-gradient(135deg,#e6007e,#2979ff);
+  --radius:12px;--radius-sm:8px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(13,11,26,.82);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);border-bottom:1px solid var(--border);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,48px)}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-brand img{height:28px}
+.nav-brand span{font-size:13px;font-weight:500;color:var(--text-secondary);letter-spacing:.4px}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-links a{font-size:13px;font-weight:500;color:var(--text-secondary);text-decoration:none;padding:6px 14px;border-radius:6px;transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--bg-surface)}
+.nav-links a.cta-link{color:var(--pink);border:1px solid rgba(230,0,126,.25)}
+.nav-links a.cta-link:hover{background:var(--pink-soft)}
+
+/* COMMON */
+section{padding:clamp(60px,10vw,120px) clamp(20px,5vw,80px)}
+.section-inner{max-width:1120px;margin:0 auto}
+.section-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.6px;color:var(--pink);margin-bottom:12px}
+.section-heading{font-size:clamp(28px,4vw,44px);font-weight:700;line-height:1.15;margin-bottom:16px}
+.section-sub{font-size:16px;color:var(--text-secondary);max-width:560px;line-height:1.7;margin-bottom:48px}
+.gradient-text{background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:all .25s}
+.btn-primary{background:var(--accent-gradient);color:#fff}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+.btn-ghost{border:1px solid var(--border-hover);color:var(--text-secondary)}
+.btn-ghost:hover{border-color:var(--text-muted);color:var(--text);background:var(--bg-elevated)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:48px clamp(20px,5vw,80px) 32px}
+.footer-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand img{height:24px;margin-bottom:8px}
+.footer-brand p{font-size:13px;color:var(--text-muted);line-height:1.6}
+.footer-col h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:14px}
+.footer-col a{display:block;font-size:13px;color:var(--text-secondary);text-decoration:none;padding:4px 0;transition:color .2s}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{max-width:1120px;margin:0 auto;border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links .hide-mobile{display:none}
+  .footer-bottom{flex-direction:column;gap:8px}
+}
+
+#payments{padding-top:120px}
+.pay-cta-wrap{display:flex;flex-direction:column;align-items:center;gap:24px;padding:40px 0}
+.pay-now-btn{display:inline-flex;align-items:center;justify-content:center;padding:20px 56px;border-radius:10px;background:var(--accent-gradient);color:#fff;font-size:18px;font-weight:700;text-decoration:none;letter-spacing:.3px;transition:opacity .25s,transform .25s;box-shadow:0 4px 24px rgba(230,0,126,.25)}
+.pay-now-btn:hover{opacity:.9;transform:translateY(-2px)}
+.pay-support{font-size:14px;color:var(--text-muted)}
+.pay-support a{color:var(--text-secondary);text-decoration:none}
+.pay-support a:hover{color:var(--text)}
+
+
+
+/* ENHANCED MOBILE */
+@media(max-width:768px){
+  nav{padding:0 16px;height:56px}
+  .nav-brand span{display:none}
+  .nav-brand img{height:24px}
+  .nav-links{gap:2px}
+  .nav-links a{font-size:12px;padding:5px 8px}
+  .nav-links a.cta-link{padding:5px 10px}
+  section{padding:clamp(40px,8vw,80px) 16px}
+  .section-heading{font-size:clamp(24px,6vw,36px)}
+  .section-sub{font-size:14px;margin-bottom:32px}
+  .hero-h1{font-size:clamp(28px,7vw,42px)}
+  .hero-desc{font-size:15px}
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn{width:100%;max-width:280px;justify-content:center}
+  .footer-inner{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+}
+@media(max-width:480px){
+  nav{height:52px}
+  .nav-links a{font-size:11px;padding:4px 6px}
+  .nav-links a.cta-link{font-size:11px;padding:4px 8px}
+  .section-heading{font-size:clamp(22px,6vw,32px)}
+}
+@media(max-width:768px){
+  #payments{padding-top:90px}
+  .pay-now-btn{font-size:16px;padding:18px 40px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-brand">
+    <img src="/images/logo.png" alt="ARK">
+    <span>American Research Khemicals</span>
+  </a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/products">Products</a>
+    <a href="/testimonials" class="hide-mobile">Testimonials</a>
+    <a href="/catalog" class="hide-mobile">Catalog</a>
+    <a href="/payments" class="cta-link">Pay Invoice</a>
+  </div>
+</nav>
+
+<section id="payments">
+  <div class="section-inner">
+    <div class="section-label reveal">Payments</div>
+    <h2 class="section-heading reveal">Secure invoice <span class="gradient-text">payment</span></h2>
+    <p class="section-sub reveal">Click below to pay your invoice securely online through our payment portal.</p>
+
+    <div class="pay-cta-wrap reveal">
+      <a href="https://pl.mxmerchant.com/mxcustomer/d/e5ad67d1-143d-40ab-84a2-cd9a49a46a75/v3" target="_blank" rel="noopener" class="pay-now-btn">Pay Invoice Now</a>
+      <p class="pay-support">Questions? Call us at <a href="tel:+19545561700">(954) 556-1700</a> &nbsp;·&nbsp; Mon–Fri 8:30am–4pm EST</p>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/images/logo.png" alt="ARK">
+      <p>American Research Khemicals<br>Industrial cleaning solutions engineered for performance.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="/products">Insta-Kleen</a>
+      <a href="/products">Blue Power Degreaser</a>
+      <a href="/catalog">Full Catalog</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/testimonials">Testimonials</a>
+      <a href="/">About</a>
+      <a href="/payments">Pay Invoice</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+19545561700">(954) 556-1700</a>
+      <a>Mon–Fri 8:30am–4pm EST</a>
+    </div>
+  </div>
+  <div style="max-width:1120px;margin:0 auto;padding:0 0 32px;display:flex;justify-content:center">
+    <img src="/images/bbb.webp" alt="BBB Accredited Business" style="height:48px;filter:invert(1) brightness(.7)">
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 American Research Khemicals. All Rights Reserved.</span>
+    <span>Proudly Woman-Owned &amp; Made in USA</span>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
