@@ -71,13 +71,14 @@ footer{border-top:1px solid var(--border);padding:48px clamp(20px,5vw,80px) 32px
 
 #products{padding-top:120px}
 .products-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:48px}
-.product-card{background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .3s}
+.product-card{background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .3s;display:flex;flex-direction:column}
 .product-card:hover{border-color:var(--border-hover)}
 .product-img{position:relative;padding:40px;display:flex;justify-content:center;align-items:center;min-height:320px}
 .product-card:first-child .product-img{background:linear-gradient(135deg,rgba(230,0,126,.04),rgba(230,0,126,.01))}
 .product-card:last-child .product-img{background:linear-gradient(135deg,rgba(41,121,255,.04),rgba(41,121,255,.01))}
 .product-img img{height:240px;filter:drop-shadow(0 8px 32px rgba(0,0,0,.4))}
-.product-body{padding:32px;border-top:1px solid var(--border)}
+.product-body{padding:32px;border-top:1px solid var(--border);display:flex;flex-direction:column;flex:1}
+.product-body .btn{align-self:flex-start;margin-top:auto}
 .product-body h3{font-size:22px;font-weight:700;margin-bottom:8px}
 .product-body p{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:24px}
 .spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
@@ -172,7 +173,7 @@ footer{border-top:1px solid var(--border);padding:48px clamp(20px,5vw,80px) 32px
             <span class="app-tag">Equipment</span>
             <span class="app-tag">Restrooms</span>
           </div>
-          <a href="/datasheets/insta-kleen-sds.pdf" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-top:24px">
+          <a href="/datasheets/insta-kleen-sds.pdf" target="_blank" rel="noopener" class="btn btn-ghost">
             <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
             Safety Data
           </a>
@@ -198,7 +199,7 @@ footer{border-top:1px solid var(--border);padding:48px clamp(20px,5vw,80px) 32px
             <span class="app-tag">Industrial Kitchens</span>
             <span class="app-tag">Automotive</span>
           </div>
-          <a href="/datasheets/blue-power-sds.pdf" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-top:24px">
+          <a href="/datasheets/blue-power-sds.pdf" target="_blank" rel="noopener" class="btn btn-ghost">
             <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
             Safety Data
           </a>
